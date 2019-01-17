@@ -39,7 +39,7 @@ def download(schedule_results):
     teams_list = []
     l = []
     session = HTMLSession()
-    r = session.get('http://www.espn.com/nba/scoreboard/_/date/20190115')  # bez daty bedzie sciagac dzisiejsze mecze  #/_/date/20190101
+    r = session.get('http://www.espn.com/nba/scoreboard/')
     r.html.render()
     for tag in r.html.find(
             schedule_results):  # for tag in r.html.find('td.total') or for tag in r.html.find('span.sb-team-short')
