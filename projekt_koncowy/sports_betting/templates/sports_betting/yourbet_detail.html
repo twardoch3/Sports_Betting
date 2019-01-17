@@ -1,0 +1,87 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+    <h3>Bet Details</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Bet Id</th>
+            <th scope="col">Bookmaker</th>
+            <th scope="col">Date</th>
+            <th scope="col">Bet Result</th>
+            {% if object.yourbetresult.bet_result >= 0 %}
+                <th scope="col">Bid</th>
+            {% else %}
+                <th scope="col">Not Cashed in Prize</th>
+            {% endif %}
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ object.pk }} (<a href="{% url 'edit_bet' object.pk %}">Edit</a>) (<a
+                    href="{% url 'bet_picture' object.pk %}">Picture</a>)
+            </td>
+            <td>{{ object.bookmaker.name }}</td>
+            <td>{{ object.date }}</td>
+            <td>{{ object.yourbetresult.bet_result }}</td>
+            {% if object.yourbetresult.bet_result >= 0 %}
+                <td>{{ object.your_bid }}</td>
+            {% else %}
+                <td>{{ object.assumable_prize }}</td>
+            {% endif %}
+        </tr>
+
+        </tbody>
+    </table>
+    <h6>Games</h6>
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Game</th>
+            <th scope="col">Your Pick</th>
+            <th scope="col">Pick Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for g in object.games.all %}
+            <tr>
+                <td>{{ g.game }}</td>
+                <td>{{ g.get_your_forecast_display }}</td>
+                {% if not g.forecast_result %}
+                    <td>game not finished</td>
+                {% else %}
+                    <td>{{ g.forecast_result }}</td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Bet INFO</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            {% if not object.bet_won_lost %}
+                <td>bet not finished</td>
+            {% else %}
+                <td>{{ object.yourbetresult.info }}</td>
+            {% endif %}
+        </tr>
+
+        </tbody>
+
+    </table>
+    {% if object.bet_won_lost and request.user == object.user and not object.yourbetresult.info %}
+        <h4>add info</h4>
+        {% include 'sports_betting/form_template.html' %}
+    {% endif %}
+
+
+
+
+{% endblock %}

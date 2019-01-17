@@ -1,0 +1,41 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+    <h3>My Real Bets List</h3>
+    <p>Sort by: <a href="{% url 'bets_list_sort' 'profit' %}">Profit</a> <a
+            href="{% url 'bets_list_sort' 'loss' %}">Loss</a>  <a href="{% url 'bets_list' %}">Date</a> </p>
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Bookmaker</th>
+            <th scope="col">Number of Games</th>
+            <th scope="col">Date</th>
+            <th scope="col">Bet Outcome</th>
+            <th scope="col">Profit/Loss</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for bet in object_list %}
+            <tr>
+                <td>{{ bet.bookmaker.name }}</td>
+                <td>{{ bet.games.all.count }} (<a href="{% url 'bet_details' bet.pk %}">bet details</a>)</td>
+                {# tutaj link do statysty druzyny #}
+                <td>{{ bet.date }}</td>
+                {% if bet.bet_won_lost   %}
+                <td>{{ bet.bet_won_lost }}</td>
+                {% else %}
+                   <td>games not finished</td>
+                {% endif %}
+                <td>{{ bet.yourbetresult.bet_result }}</td>
+
+            </tr>
+        {% empty %}
+            <tr>
+                <td>Empty Table - No Bets</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+{% endblock %}

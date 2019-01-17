@@ -1,0 +1,54 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+    <h3>Forecasts Statistics</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Number of Games</th>
+            <th scope="col">Correct Picks</th>
+            <th scope="col">Failed Picks</th>
+            <th scope="col">Percentage of Correct Picks</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ fn }}</td>
+                <td>{{ fcorrect }}</td>
+                <td>{{ ffailed }}</td>
+                <td>{{ f_win_percentage }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <h3>Real Bets Statistics</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Number of Bets</th>
+            <th scope="col">Won Bets</th>
+            <th scope="col">Lost Bets</th>
+            <th scope="col">Percentage of Won Bets</th>
+            <th scope="col">Money Balance</th>
+            <th scope="col">Biggest Loss</th>
+            <th scope="col">Biggest Profit</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ bn }}</td>
+                <td>{{ bcorrect }}</td>
+                <td>{{ bfailed }}</td>
+                <td>{{ b_win_percentage }}</td>
+                <td>{{ money_b }}</td>
+                <td>{{ bloss }}</td>
+                <td>{{ bprofit }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+
+{% endblock %}

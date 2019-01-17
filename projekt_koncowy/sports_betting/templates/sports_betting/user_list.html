@@ -1,0 +1,30 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+    <h3>Ranking of Users</h3>
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">User</th>
+            <th scope="col">Number of Forecasts</th>
+            <th scope="col">Percentage of Correct Forecasts</th>
+            <th scope="col">Number of Bets</th>
+            <th scope="col">Percentage of Won Bets</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for u in object_list %}
+        <tr>
+            <td><a href="{% url 'forecasts' u.pk %}">{{ u }}</a> </td>
+            <td>{{ u.gameforecast_set.all.count }}</td>
+            <td>{{ u.user_correct_forecasts_percentage.percentage }}</td>
+            <td>{{ u.yourbet_set.all.count }}</td>
+            <td>{{ u.user_correct_bets_percentage.percentage }}</td>
+
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

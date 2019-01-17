@@ -1,0 +1,15 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+    <h3>Bookmaker {{ object }}</h3>
+    <h3>Opinions:</h3>
+    <div class="list-group">
+        {% for o in object.opinion_set.all %}
+            <button type="button" class="list-group-item list-group-item-action">{{ o.text }} @{{ o.user }}</button>
+        {% endfor %}
+
+    </div>
+    <br>
+    <h4>Add Opinion</h4>
+    {% include 'sports_betting/form_template.html' %}
+    <br>
+{% endblock %}

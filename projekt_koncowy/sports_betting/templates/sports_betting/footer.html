@@ -1,0 +1,14 @@
+<footer>
+    <br>
+    <strong>
+        NBA Betting Application
+    </strong>
+
+    {% if request.user.is_authenticated %}
+        <p>logged in as <a href="{% url 'user' %}">{{ request.user.username }}</a></p>
+        <a href="{% url 'logout' %}">logout</a>
+    {% else %}
+        <p>logout {{ request.user }}</p>
+    {% endif %}
+
+</footer>

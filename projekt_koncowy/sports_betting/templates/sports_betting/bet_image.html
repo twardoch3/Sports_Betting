@@ -1,0 +1,11 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+
+     <h3>Bet Picture</h3>
+    <h4>{{ bet }}</h4>
+    {% if bet.image %}
+        <img src="{{ bet.image.url }}" width="400" height="800">   {# obrazek #}
+    {% endif %}<br>
+    <a href="{% url 'bets_list' %}">Bets List</a>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'sports_betting/base.html' %}
+{% block content %}
+    <h3>List of Bookmakers</h3>
+
+    <table class="table table-hover">
+        <thead>
+        <tr class="bg-primary text-white">
+            <th scope="col">Bookmaker name</th>
+            <th scope="col">Location</th>
+            <th scope="col">Number of Opinions</th>
+            <th scope="col">Last Opinion</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for b in object_list %}
+            <tr>
+                <td>{{ b.name }}</td>
+                <td>{{ b.location }} </td>
+                <td>{{ b.opinion_set.count }} (<a href="{% url 'bookmaker_opinions' b.pk %}">see all</a>)</td>
+                <td>{{ b.opinion_set.last }}</td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td>Empty Table - No Bookmakers</td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <br>
+    <a href="{% url 'add_bookmaker' %}">
+        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit"> Add Bookmaker</button>
+
+    </a>
+
+
+
+{% endblock %}

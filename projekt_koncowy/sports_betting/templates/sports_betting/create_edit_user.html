@@ -1,0 +1,18 @@
+{%  extends 'sports_betting/base.html' %}
+{% block content %}
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    <h3>{{ t }}</h3>
+    {% include 'sports_betting/form_template.html' %}
+    {% if request.user.is_authenticated %}
+        <p><a href="{% url 'password_change' %}">Change User Password</a></p>
+        <p><a href="{% url 'delete_user' request.user.pk %}">Delete Account</a></p>
+
+    {% endif %}
+
+{% endblock %}
