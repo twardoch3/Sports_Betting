@@ -22,6 +22,7 @@ python manage.py runserver
 
 ### Usage Examples:
 For example data run ```scores.py``` to get today's games and results. 
+
 Add Forecasts:
 ```
 http://127.0.0.1:8000/betting/
