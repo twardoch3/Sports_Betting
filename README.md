@@ -5,7 +5,7 @@ The Sport_Betting Project is a program for making forecasts about basketball gam
 Program requires PostgreSQL database and Django.
 
 ### Installing
-Create database 'sbet_db'. Install requirements  with command:
+Create database ```'sbet_db'```. Install requirements  with command:
 ```
 pip install -r requirements.txt
 ```
