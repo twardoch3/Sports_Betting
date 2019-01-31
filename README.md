@@ -1,5 +1,5 @@
 # Sports_Betting
-The Sport_Betting Project is a program for making forecasts about basketball games and manage database with users' game forecasts, bets and prediction statistics.
+The Sport_Betting Project is a program for making forecasts about basketball games and managing database with users' game forecasts, bets and prediction statistics.
 
 ### Requirements
 Program requires PostgreSQL database and Django.
@@ -20,7 +20,9 @@ python manage.py runserver
 ```
 
 ### Usage Examples:
-For example data run ```scores.py``` to get today's games and results. 
+For example data run ```python3 scores.py``` to get today's games and results from 'http://www.espn.com/nba/scoreboard/'.
+Type in ```g``` to download games and ```r``` for results (if available).
+(Connection info: username = 'postgres', password = 'coderslab')
 
 Add Forecasts:
 ```
