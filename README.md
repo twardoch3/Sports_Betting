@@ -1,6 +1,5 @@
 # Sports_Betting
-Application allows to make a forecasts about basketball games and manage database with users' game forecasts, bets
-and prediction statistics ("miniportal" for sports betting).
+The Sport_Betting Project is a program for making forecasts about basketball games and manage database with users' game forecasts, bets and prediction statistics.
 
 ### Requirements
 Program requires PostgreSQL database and Django.
