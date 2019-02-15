@@ -1,6 +1,7 @@
 # Sports_Betting
 The Sport_Betting Project is a program for making forecasts about basketball games and managing database with users' game forecasts, bets and prediction statistics.
-[deployed version](http://tomaszt.pythonanywhere.com/betting/)
+
+[Deployed version](http://tomaszt.pythonanywhere.com/betting/)
 
 ### Requirements
 Program requires PostgreSQL database and Django.
