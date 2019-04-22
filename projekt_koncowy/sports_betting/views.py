@@ -290,7 +290,7 @@ class GameView(LoginRequiredMixin, generic.DetailView):
 class GamesView(LoginRequiredMixin, generic.ListView):
     model = Game
     ordering = '-game_date'
-    paginate_by = 25
+    paginate_by = 5
 
 
 class UserRankingView(LoginRequiredMixin, generic.ListView):
