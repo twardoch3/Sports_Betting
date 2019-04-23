@@ -85,8 +85,8 @@ class TodayGamesView(LoginRequiredMixin, generic.ListView):
 
 class ForecastsListView(LoginRequiredMixin, generic.ListView):
     template_name = 'sports_betting/forecasts.html'
+    paginate_by = 20
 
-    # paginate_by = 20
     def get_queryset(self):
         self.user = get_object_or_404(User, pk=self.kwargs.get('pk'))
         return GameForecast.objects.filter(user=self.user).order_by('-date')
